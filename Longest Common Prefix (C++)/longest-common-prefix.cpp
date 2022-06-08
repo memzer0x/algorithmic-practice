@@ -35,7 +35,7 @@ std::string longestCommonPrefix(std::vector<std::string>& strs){
   /* find common prefix */
   std::string prefixstring = strs[longestString];
   /* erase the longest string from our vector since we stored it as our prefixstring */
-  strs.erase(std::remove(strs.begin(), strs.end(), strs[longestString]), strs.end());
+  if(strs.size() > 1) strs.erase(strs.begin() + longestString);
   std::string currentPrefix = "";
   std::string longestPrefix = "";
   /* loop on each character of the longest string we found in our vector of strings */

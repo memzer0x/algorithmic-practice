@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 #include <vector>
 #include <string>
 #include <map>
@@ -24,26 +23,29 @@ std::vector<std::string> letterCombinations(std::string digits) {
   std::for_each(digits.begin(), digits.end(), [&](const char& u){
                   d.push_back((int)u - 48);
                 });
-  for(int i = 0; i < d.size(); i++){
-      std::string currentSequence = m[d[i]];
-      for(int j = 0; j < currentSequence.length(); j++){
-        for(int k = 0; k < d.size(); k++){
-          for(int z = 0; z < currentSequence.length(); z++){
-            std::cout << currentSequence[j] << m[d[k]][z] << ", ";
-            result.push_back(std::to_string(currentSequence[j]) + std::to_string(m[d[k]][z]));
-          }
-        }
-        std::cout << "\n";
+  for(int i = 0; i < m[d[0]].length(); i++){
+    std::string currentCharacter = "";
+    currentCharacter += m[d[0]][i];
+    for(int j = 1; j < d.size(); j++){
+      for(int z = 0; z < m[d[j]].length(); z++){
+        std::string secondCharacter(1, m[d[j]][z]);
+        result.push_back(currentCharacter + secondCharacter);
+        secondCharacter.clear();
       }
     }
-    return result;
+    currentCharacter.clear();
+  }
+  return result;
 }
 
 int main(int argc, char** argv){
   letterCombinations("234");
+  std::cout << std::endl;
   letterCombinations("3435");
+  std::cout << std::endl;
   letterCombinations("1");
-//  letterCombinations("5938");
-//  letterCombinations("549837")
+  letterCombinations("5938");
+  std::cout << std::endl;
+  letterCombinations("549837");
   return 0;
 }

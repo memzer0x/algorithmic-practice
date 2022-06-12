@@ -1,13 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 std::string abbrevName(std::string name)
 {
-  std::string w1(1,name[0]);
-  w1 += ".";
-  w1.push_back(name.substr(name.find(" ") + 1, name.length())[0]);
+  std::string w1(1,toupper(name[0]));
+  w1.push_back('.');
+  w1.push_back(toupper(name[name.find(" ") + 1]));
   return w1;
 }
 

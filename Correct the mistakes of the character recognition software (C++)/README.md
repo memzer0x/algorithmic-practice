@@ -10,7 +10,7 @@ Your task is correct the errors in the digitised text. You only have to handle t
 
 The test cases contain numbers only by mistake.
 
-**Solved With : **
+**Solved With :**
 ```cpp
 #include <iostream>
 #include <algorithm>

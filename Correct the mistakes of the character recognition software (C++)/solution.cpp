@@ -9,7 +9,7 @@ const std::map<std::string, const char*> m = {
   {"5", "S"}
 };
 
-std::string unscramble(std::string str){
+std::string correct(std::string str){
   std::for_each(m.begin(), m.end(), [&](const auto& v){
                   if((str.find(v.first)) != std::string::npos){
                     do{
@@ -21,6 +21,6 @@ std::string unscramble(std::string str){
 }
 
 int main(int argc, char** argv){
-  std::cout << "H1 W0RLD : " << unscramble("H1 W0RLD") << std::endl;
+  std::cout << "H1 W0RLD : " << correct("H1 W0RLD") << std::endl;
   return 0;
 }
